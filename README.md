@@ -5,6 +5,11 @@ Serverless and Service Mesh are two popular cloud-native technologies that custo
 
 When exploring this area you will find that while there is a lot of great information and concepts floating around, it is more difficult in practice to implement even in development without some trial-and-error. (But isn't that the fun in the process?!) The aim of this blog is to assist with the following by providing a guide to walk through the installation of both technologies and exploring the integration between them
 
+### Note on OpenShift Installations
+For OpenShift users, this guide will also provide the additional configuration components necessary to walk through the steps on an OpenShift cluster. Additional configuration has been summarized into a [single section](https://github.com/solo-io/solo-blog-knative-istio#additional-prep-for-openshift-deployments) to make the tutorial easier to follow along for both OpenShift and non-OpenShift users
+
+[See this link](https://istio.io/latest/docs/setup/platform-setup/openshift/) from the Istio documentation for more detail on the additional configuration required to run knative + istio on OpenShift. For the purposes of this repo, all general-purpose commands are led with `kubectl` and all additional OpenShift specific instructions are commands led with `oc` to provide more clarity.
+
 # Purpose/Outcomes
 At the end of part 1 of this tutorial we will have completed the following:
 - Installed knative-serving
@@ -20,11 +25,6 @@ In part 2 of this tutorial we will expand further on this with a second example:
 - Deploy a second serverless app `httpbin`
 - Confirm mTLS is enforced
 - Explore using Istio `AuthorizationPolicy` to further secure our services
-
-### OpenShift Installations
-For OpenShift users, this guide will also provide the additional configuration components necessary to walk through the steps on an OpenShift cluster. Additional configuration has been summarized into a single section to make the tutorial easier to follow along for both OpenShift and non-OpenShift users
-
-[See this link](https://istio.io/latest/docs/setup/platform-setup/openshift/) from the Istio documentation for more detail on the additional configuration required to run knative + istio on OpenShift. For the purposes of this repo, all general-purpose commands are led with `kubectl` and all additional OpenShift specific instructions are commands led with `oc` to provide more clarity.
 
 ## Table of Contents
 - [Tutorial #1: Deploying your first Knative Service on Istio](https://github.com/solo-io/solo-blog-knative-istio#tutorial-1-deploying-your-first-knative-service-on-istio)
