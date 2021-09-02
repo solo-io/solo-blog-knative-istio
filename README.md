@@ -27,9 +27,9 @@ For OpenShift users, this guide will also provide the additional configuration c
 [See this link](https://istio.io/latest/docs/setup/platform-setup/openshift/) from the Istio documentation for more detail on the additional configuration required to run knative + istio on OpenShift. For the purposes of this repo, all general-purpose commands are led with `kubectl` and all additional OpenShift specific instructions are commands led with `oc` to provide more clarity.
 
 ## Table of Contents
-- [Tutorial #1: Deploying your first Knative Service on Istio](https://github.com/ably77/knative-istio-tutorial#tutorial-1-deploying-your-first-knative-service-on-istio)
-- [Next Steps: Setting up STRICT mtls for knative-serving](https://github.com/ably77/knative-istio-tutorial#next-steps---setting-up-strict-mtls-for-knative-serving)
-- [Additional Next Steps: Install Gloo Mesh](https://github.com/ably77/knative-istio-tutorial#additional-next-steps---install-gloo-mesh)
+- [Tutorial #1: Deploying your first Knative Service on Istio](https://github.com/solo-io/solo-blog-knative-istio#tutorial-1-deploying-your-first-knative-service-on-istio)
+- [Next Steps: Setting up STRICT mtls for knative-serving](https://github.com/solo-io/solo-blog-knative-istio/blob/main/strict-mtls.md)
+- [Additional Next Steps: Install Gloo Mesh](https://github.com/solo-io/solo-blog-knative-istio#additional-next-steps---install-gloo-mesh)
 
 ## Tutorial #1: Deploying your first Knative Service on Istio
 
@@ -438,7 +438,7 @@ Congrats! At this point we have successfully
 ## Next Steps - Setting up STRICT mtls for knative-serving
 At this point, we have run through our first knative-serving example without explicitly specifying an Istio `PeerAuthentication` policy for mtls. If not defined, Istio by default will configure the destination workloads using `PERMISSIVE` mode. When `PERMISSIVE` mode is enabled, a service can accept both **plain text and mutual TLS traffic**. In order to only allow mutual TLS traffic, the configuration needs to be changed to `STRICT` mode.
 
-- [Tutorial #2 - Setting up STRICT mtls for knative-serving](https://github.com/ably77/knative-istio-tutorial/blob/main/strict-mtls.md)
+- [Tutorial #2 - Setting up STRICT mtls for knative-serving](https://github.com/solo-io/solo-blog-knative-istio/blob/main/strict-mtls.md)
 
 In part 2 of this tutorial we will expand further on this with a second example:
 - Setting up STRICT mtls for knative-serving
@@ -453,9 +453,9 @@ Follow the [Gloo mesh Enterprise Docs](https://docs.solo.io/gloo-mesh/latest/set
 
 Once gloo-mesh is deployed and the cluster(s) registered, we can see our hello-world instance workloads and destinations in the mesh updated and removed as the serverless function is scaled up and then scaled down to zero.
 
-![](https://github.com/ably77/knative-istio-tutorial/raw/main/images/gm1.png)
+![](https://github.com/solo-io/solo-blog-knative-istio/blob/main/images/gm1.png)
 
-![](https://github.com/ably77/knative-istio-tutorial/raw/main/images/gm2.png)
+![](https://github.com/solo-io/solo-blog-knative-istio/blob/main/images/gm2.png)
 
 
 
