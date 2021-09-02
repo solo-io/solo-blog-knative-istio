@@ -21,14 +21,14 @@ At the end of part 1 of this tutorial we will have completed the following:
 - Split traffic between two revisions of a knative service
 
 In part 2 of this tutorial we will expand further on this with a second example:
-- Setting up STRICT mtls for knative-serving
+- Configuring STRICT mtls for knative + istio
 - Deploy a second serverless app `httpbin`
 - Confirm mTLS is enforced
 - Explore using Istio `AuthorizationPolicy` to further secure our services
 
 ## Table of Contents
 - [Tutorial #1: Deploying your first Knative Service on Istio](https://github.com/solo-io/solo-blog-knative-istio#tutorial-1-deploying-your-first-knative-service-on-istio)
-- [Next Steps: Setting up STRICT mtls for knative-serving](https://github.com/solo-io/solo-blog-knative-istio/blob/main/strict-mtls.md)
+- [Next Steps: Configuring STRICT mtls for knative + istio](https://github.com/solo-io/solo-blog-knative-istio/blob/main/strict-mtls.md)
 - [Additional Next Steps: Install Gloo Mesh](https://github.com/solo-io/solo-blog-knative-istio#additional-next-steps---install-gloo-mesh)
 
 ## Tutorial #1: Deploying your first Knative Service on Istio
@@ -435,16 +435,16 @@ Congrats! At this point we have successfully
 - Set up a knative revision
 - Split traffic between two revisions of a knative service
 
-## Next Steps - Setting up STRICT mtls for knative-serving
+## Next Steps - Setting up STRICT mtls for the Istio Service Mesh
 At this point, we have run through our first knative-serving example without explicitly specifying an Istio `PeerAuthentication` policy for mtls. If not defined, Istio by default will configure the destination workloads using `PERMISSIVE` mode. When `PERMISSIVE` mode is enabled, a service can accept both **plain text and mutual TLS traffic**. In order to only allow mutual TLS traffic, the configuration needs to be changed to `STRICT` mode.
 
-- [Tutorial #2 - Setting up STRICT mtls for knative-serving](https://github.com/solo-io/solo-blog-knative-istio/blob/main/strict-mtls.md)
+- [Tutorial #2 - Configuring STRICT mtls for knative + istio](https://github.com/solo-io/solo-blog-knative-istio/blob/main/strict-mtls.md)
 
 In part 2 of this tutorial we will expand further on this with a second example:
-- Setting up STRICT mtls for knative-serving
+- Enforce STRICT mtls in the mesh
 - Deploy a second serverless app `httpbin`
-- Confirm mTLS is enforced
-- Explore using Istio `AuthorizationPolicy` to further secure our services
+- Confirm mTLS is enforced in the mesh
+- Explore using Istio `AuthorizationPolicy` to further secure our services in the mesh
 
 ## Additional Next Steps - Install Gloo Mesh
 [Gloo Mesh](https://docs.solo.io/gloo-mesh/latest/) is a Kubernetes-native management plane that enables configuration and operational management of multiple heterogeneous service meshes across multiple clusters through a unified API. The Gloo Mesh API integrates with the leading service meshes and abstracts away differences between their disparate API's, allowing users to configure a set of different service meshes through a single API. Gloo Mesh is engineered with a focus on its utility as an operational management tool, providing both graphical and command line UIs, observability features, and debugging tools.

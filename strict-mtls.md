@@ -1,4 +1,4 @@
-# Setting up STRICT mtls for knative-serving
+# Configuring STRICT mtls for knative + istio
 For this tutorial we will be using a `httpbin` service in the form of a knative service. This will help us more clearly identify whether mtls is working as expected by looking for the envoy `X-Forwarded-Client-Cert` in the headers.
 
 ## create httpbin kn service with CLI
@@ -221,19 +221,25 @@ spec:
 EOF
 ```
 
-If you re-run the curl command it should hang, this is because we have by default denied all connections with the `AuthorizationPolicy` above
+If you re-run the curl command we should see a 403 Forbidden, this is because we have by default denied all connections with the `AuthorizationPolicy` above
 ```
-% kubectl exec deploy/sleep -n default -- curl -v -H "Host: httpbin.default.example.com" 10.217.5.142/headers
-*   Trying 10.217.5.142:80...
-  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
-                                 Dload  Upload   Total   Spent    Left  Speed
-  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0* Connected to 10.217.5.142 (10.217.5.142) port 80 (#0)
+*   Trying 34.136.77.209...
+* TCP_NODELAY set
+* Connected to 34.136.77.209 (34.136.77.209) port 80 (#0)
 > GET /headers HTTP/1.1
 > Host: httpbin.default.example.com
-> User-Agent: curl/7.78.0-DEV
+> User-Agent: curl/7.64.1
 > Accept: */*
 > 
-  0     0    0     0    0     0      0      0 --:--:--  0:00:27 --:--:--     0
+< HTTP/1.1 403 Forbidden
+< content-length: 19
+< content-type: text/plain
+< date: Thu, 02 Sep 2021 19:11:18 GMT
+< server: istio-envoy
+< x-envoy-upstream-service-time: 10
+< 
+* Connection #0 to host 34.136.77.209 left intact
+RBAC: access denied* Closing connection 0
 ```
 
 ### Allow default namespace to be accessed by source namespaces
@@ -294,3 +300,10 @@ If you re-run the curl command we should be successful
 100   655  100   655    0     0  94845      0 --:--:-- --:--:-- --:--:--  106k
 * Connection #0 to host 10.217.5.142 left intact
 ```
+
+### End of Part 2
+Congrats! At this point we have successfully
+- Enforced STRICT mtls in the mesh
+- Deployed a second serverless app `httpbin`
+- Confirmed mTLS is enforced in the mesh
+- Explored using Istio `AuthorizationPolicy` to further secure our services in the mesh
