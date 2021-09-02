@@ -1,7 +1,7 @@
 # Getting started with Knative and Istio
 
 # Introduction
-Serverless and Service Mesh are two popular cloud-native technologies that customers are exploring how to create value from. [Knative](https://knative.dev/docs/) and [Istio](https://istio.io/) respectively are the prominent open source communities surrounding these two spaces. As we dive deeper into each of these solutions with our customers, the question often comes up on the intersection between the two popular technologies and how they can compliment eachother. Can we leverage Istio to secure, observe, and expose our Knative serverless applications? 
+Serverless and Service Mesh are two popular cloud-native technologies that customers are exploring how to create value from. [Knative](https://knative.dev/docs/) and [Istio](https://istio.io/) respectively are the prominent open source communities surrounding these two spaces. As we dive deeper into each of these solutions with our customers, the question often comes up on the intersection between the two popular technologies and how they can compliment each other. Can we leverage Istio to secure, observe, and expose our Knative serverless applications? 
 
 When exploring this area you will find that while there is a lot of great information and concepts floating around, it is more difficult in practice to implement even in development without some trial-and-error. (But isn't that the fun in the process?!) The aim of this blog is to assist with the following by providing a guide to walk through the installation of both technologies and exploring the integration between them
 
